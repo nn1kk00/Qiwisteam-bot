@@ -31,15 +31,6 @@ apihelper.proxy = {'http': data["proxy"], 'https': data["proxy"]}
 @api.message_handler(content_types=["text"])
 def message(message):
     try:
-#        if message.from_user.id in []:
-#             if message.text == "/start": api.send_message(message.from_user.id, """👋 Wv`pl`scwv`t`y`lnras, Неко Арк!
-
-# Wv`pl`sc mac`ngb scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras ksr`pl`y`mac aslnr sc`pl`y`ksr Steam, wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras CS2, Dota, aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras!
-
-# 🤑 Wv`pl`scwv`t`y`lnras Qiwi mac`pl`y`ksr`t`y`lnras aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras!
-# 💖 Wv`pl`scwv`t`y`lnras ksr`pl`y`mac aslnr sc`pl`y`ksr Steam aslnr wv`pl`scwv`t`y`lnras!
-# 🎰 Wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras aslnr wv`pl`scwv`t`y`lnras Qiwi mac`pl`y`ksr`t`y`lnras!""")
-#             else: api.send_message(message.from_user.id, "❌ Ng`izwv`sctngasb ksromacngdas!")
         s = message.text.split(" ")
         with open(f"assets/chats/{message.from_user.id}.txt", "a", encoding="utf-8") as f:
             f.write(f"[{datetime.datetime.now().hour}:{datetime.datetime.now().minute}] @{message.from_user.username} ({message.from_user.id}): {message.text}\n")
@@ -128,13 +119,11 @@ def message(message):
                             f.close()
                         api.send_message(message.from_user.id, f"✅ Пользователь @{temp1['name']} был разблокирован!")
                     except: api.send_message(message.from_user.id, "❌ Пользователя, которого хотели разблокировать не существует!")
-#region АЛЕКС, НЕ ПАРСИ,
                 elif msg[0] == "/unbancas":
                     try: 
                         with open(f'assets/accounts/{msg[1]}.json', "r", encoding="utf-8") as f:
                             temp1 = json.load(f)
                             f.close()
-#region Я ЗАПРЕЩАЮ!!
                         acc["bannedcasino"].remove(int(msg[1]))
                         with open(f'assets/acc.json', "w", encoding="utf-8") as f:
                             json.dump(acc, f)
@@ -217,14 +206,10 @@ def message(message):
                         with open('assets/ref.json', "r", encoding="utf-8") as f:
                             temp1 = json.load(f)
                             f.close()
-                        # Проверяем наличие хоть какой-то дополнительной информации из ссылки
                         if " " in message.text:
                             referrer_candidate = message.text.split(" ")[1]
-                            # Пробуем преобразовать строку в число
                             try:
                                 referrer_candidate = int(referrer_candidate)
-                                # Проверяем на несоответствие TG ID пользователя TG ID реферера
-                                # Также проверяем, есть ли такой реферер в базе данных
                                 if message.from_user.id != referrer_candidate and referrer_candidate in acc["all"]:
                                     referer = referrer_candidate
                                     with open(f'assets/accounts/{referer}.json', 'r', encoding="utf-8") as f:
@@ -380,10 +365,10 @@ def message(message):
                 api.send_message(message.from_user.id, "Жду активацию промокода\n\nОн бывает из рандомных цифр, но бывает и из слов", reply_markup=markup)
             elif message.text == "ℹ Информация": 
                 api.send_message(message.from_user.id, """👤 Владелец/разработчик: @nn1kk00 (обратная связь: @qiwisteaml_bot), только по тех. проблемам и товарам
-Модератор: @drgtjcgn, только по товарам
+Модератор: @мику, только по товарам
 ----
 Q: Что делать если бот выдал ошибку?
-A: N1kk00 уже знает об проблеме, и попытается решить. С ним можно связаться через @qiwisteaml_bot
+A: N1kk00 уже знает об проблеме, и попытается решить. С ним можно связаться через @мику
                                  
 Q: Можно ли сделать возврат на товар который получил/активировал?
 A: Нет, вы уже использовали. Но, если не получили, то возможно
